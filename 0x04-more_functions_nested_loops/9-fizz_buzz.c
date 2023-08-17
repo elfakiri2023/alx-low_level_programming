@@ -3,9 +3,10 @@
 /**
  * main - Fizz-Buzz test.
  * Description: You can only use _putchar function to print.
+ * Return: 0
  */
 
-void main(void)
+int main(void)
 {
 	int n = 1;
 
@@ -31,5 +32,6 @@ void main(void)
 		_putchar(" ");
 		n++;
 	}
+	return (0);
 }
 
