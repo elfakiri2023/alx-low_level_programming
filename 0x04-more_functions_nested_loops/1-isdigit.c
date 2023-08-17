@@ -3,12 +3,12 @@
 /**
  * _isdigit - checks for a digit (0 through 9).
  * @c: init type number
- * Return: 1 if c is uppercase, 0 otherwise
+ * Return: 1 if c is digit, 0 otherwise
  */
 
 int _isdigit(int c)
 {
-	if (c >= 0 && c <= 9)
+	if (c >= '0' && c <= '9')
 	{
 		return (1);
 	}
