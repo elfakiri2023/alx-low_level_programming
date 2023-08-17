@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - Fizz-Buzz test.
@@ -8,25 +8,30 @@
 
 int main(void)
 {
-	int i;
+	int n = 1;
 
-	i = 1;
-	while (i <= 100)
+	while (n <= 100)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
-			printf("FizzBuzz");
-		else if (i % 3 == 0)
-			printf("Fizz");
-		else if (i % 5 == 0)
-			printf("Buzz");
+		if ((n % 3) == 0 && (n % 5) == 0)
+		{
+			_putchar("FizzBuzz");
+		}
+		else if ((n % 3) == 0)
+		{
+			_putchar("Fizz");
+		}
+		else if ((n % 5) == 0)
+		{
+			_putchar("Buzz");
+		}
 		else
-			printf("%d", i);
+		{
+			_putchar("%d", n);
+		}
 
-		if (i != 100)
-			printf(" ");
-		i++;
+		_putchar(" ");
+		n++;
 	}
-	printf("\n");
-
 	return (0);
 }
+
