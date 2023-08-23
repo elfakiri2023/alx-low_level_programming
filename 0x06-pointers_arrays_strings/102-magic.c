@@ -2,7 +2,7 @@
 
 /**
  * main - main function
- * Description:  function that adds two numbers.
+ * Description: prints a[2] = 98
  * Return: int
  */
 
