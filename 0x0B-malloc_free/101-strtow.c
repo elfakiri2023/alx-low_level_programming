@@ -44,15 +44,11 @@ char **strtow(char *str)
 		len++;
 	words = counterr(str);
 	if (words == 0)
-	{
 		return (NULL);
-	}
 
 	m = (char **) malloc(sizeof(char *) * (words + 1));
 	if (m == NULL)
-	{
 		return (NULL);
-	}
 
 	for (i = 0; i <= len; i++)
 	{
@@ -63,9 +59,7 @@ char **strtow(char *str)
 				end = i;
 				t = (char *) malloc(sizeof(char) * (c + 1));
 				if (t == NULL)
-				{
 					return (NULL);
-				}
 				while (start < end)
 					*t++ = str[start++];
 				*t = '\0';
@@ -77,8 +71,6 @@ char **strtow(char *str)
 		else if (c++ == 0)
 			start = i;
 	}
-
 	m[k] = NULL;
-
 	return (m);
 }
