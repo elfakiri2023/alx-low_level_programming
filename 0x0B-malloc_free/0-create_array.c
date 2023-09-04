@@ -1,52 +1,33 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * main - Print the min number of coins
- * @argc: int number
- * @argv: int number
- * Return: 1 if error and 0 otherwise
+ * *create_array - Creates an array of chars
+ * @size: size
+ * @c: char
+ *
+ * Return: pointer to the array (Success), NULL (Error)
  */
-
-int main(int argc, char *argv[])
+char *create_array(unsigned int size, char c)
 {
-	int x, c;
-	unsigned int i;
 	char *p;
-	int cents[] = {25, 10, 5, 2};
+	unsigned int x = 0;
 
-	if (argc != 2)
+	if (size == 0)
+		return (NULL);
+
+	p = (char *) malloc(sizeof(char) * size);
+
+	if (p == NULL)
+		return (0);
+
+	while (i < size)
 	{
-		printf("Error\n");
-		return (1);
+		*(p + x) = c;
+		x++;
 	}
 
-	x = strtol(argv[1], &p, 10);
-	c = 0;
+	*(p + x) = '\0';
 
-	if (!*p)
-	{
-		while (x > 1)
-		{
-			for (i = 0; i < sizeof(cents[i]); i++)
-			{
-				if (x >= cents[i])
-				{
-					c += x / cents[i];
-					x = x % cents[i];
-				}
-			}
-		}
-		if (x == 1)
-			c++;
-	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	printf("%d\n", c);
-	return (0);
+	return (p);
 }
