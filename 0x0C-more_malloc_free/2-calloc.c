@@ -10,25 +10,23 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *pntr;
+	void *p;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-
-	pntr = malloc(nmemb * size);
-	
-	if (pntr == NULL)
+	p = malloc(nmemb * size);
+	if (p == NULL)
 	{
 		return (NULL);
 	}
 
 	for (i = 0; i < (nmemb * size); i++)
 	{
-		*((char *)(pntr) + i) = 0;
+		*((char *)(p) + i) = 0;
 	}
 
-	return (pntr);
+	return (p);
 }
