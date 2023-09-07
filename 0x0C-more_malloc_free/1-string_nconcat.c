@@ -27,31 +27,31 @@ int cal_strlen(char *string)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *p;
-	int x, len, i, j;
+	char *ptr;
+	int num, len, i, j;
 
-	x = n;
+	num = n;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	if (x < 0)
+	if (num < 0)
 		return (NULL);
-	if (x >= cal_strlen(s2))
-		x = cal_strlen(s2);
+	if (num >= cal_strlen(s2))
+		num = cal_strlen(s2);
 
-	len = cal_strlen(s1) + x + 1;
+	len = cal_strlen(s1) + num + 1;
 
-	p = malloc(sizeof(*p) * len);
-	if (p == NULL)
+	ptr = malloc(sizeof(*ptr) * len);
+	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; s1[i] != '\0'; i++) 
-		p[i] = s1[i];
-	for (j = 0; j < x; j++)
-		p[i + j] = s2[j];
-	p[i + j] = '\0';
+	for (i = 0; s1[i] != '\0'; i++)
+		ptr[i] = s1[i];
+	for (j = 0; j < num; j++)
+		ptr[i + j] = s2[j];
+	ptr[i + j] = '\0';
 
-	return (p);
+	return (ptr);
 }
