@@ -1,48 +1,90 @@
-#include "dog.h"
 #include <stdlib.h>
+#include "dog.h"
+
 
 /**
  * new_dog - function to create a new dog
- * @name: char string
- * @age: int
+ * @name: char
+ * @age: float
  * @owner: char string
- * Return: pointer or null
+ * Return: pointer
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct dog *dogg;
-	int i, j, q;
-	char *n, *o;
+	dog_t *dog;
+	int len_1, len_2;
 
-	dogg = malloc(sizeof(struct dog));
-	if (dogg == NULL)
-		returkn(NULL);
-	for (i = 0; name[i] != '\0'; i++)
-		;
-	for (j = 0; owner[j] != '\0'; j++)
-		;
+	len_1 = get_strlen(name);
+	len_2 = get_strlen(owner);
 
-	n = malloc(sizeof(char) * i + 1);
-	if (n == NULL)
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
+		return (NULL);
+
+	dog->name = malloc(sizeof(char) * (len_1 + 1));
+	if (dog->name == NULL)
 	{
-		free(dogg);
+		free(dog);
 		return (NULL);
 	}
-	o = malloc(sizeof(char) * j + 1);
-	if (o == NULL)
+	dog->owner = malloc(sizeof(char) * (len_2 + 1));
+	if (dog->owner == NULL)
 	{
-		free(n);
-		free(dogg);
+		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	for (q = 0; q <= i; q++)
-		n[q] = name[q];
-	for (q = 0; q <= j; q++)
-		o[q] = owner[q];
+	copyy(dog->name, name);
+	copyy(dog->owner, owner);
+	dog->age = age;
 
-	dogg->name = n;
-	dogg->age = age;
-	dogg->owner = o;
+	return (dog);
+}
 
-	return (dogg);
+/**
+ * get_strlen - return the string length
+ * @s: string
+ * Return: the length
+ */
+
+int get_strlen(char *s)
+{
+	int i;
+
+	i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+}
+
+/**
+ * *copyy - copies the string pointed to
+ * @dest: pointer
+ * @src: string
+ * Return: the pointer
+ */
+
+char *copyy(char *dest, char *src)
+{
+	int len, i;
+
+	len = 0;
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+
+	return (dest);
 }
