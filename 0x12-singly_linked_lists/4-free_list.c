@@ -1,39 +1,18 @@
 #include "lists.h"
 
 /**
- * add_node_end - add a new node.
+ * free_list - list
  * @head: head
- * @str: string
- * Return: address
+ * Return: void
  */
-list_t *add_node_end(list_t **head, const char *str)
+void free_list(list_t *head)
 {
-	list_t *neww, *currentt;
-	size_t n;
+	list_t *current_node;
 
-	neww = malloc(sizeof(list_t));
-	if (neww == NULL)
-		return (NULL);
-
-	neww->str = strdup(str);
-
-	for (n = 0; str[n]; n++)
-		;
-
-	neww->len = n;
-	neww->next = NULL;
-	currentt = *head;
-
-	if (currentt == NULL)
+	while ((current_node = head) != NULL)
 	{
-		*head = neww;
+		head = head->next;
+		free(current_node->str);
+		free(current_node);
 	}
-	else
-	{
-		while (currentt->next != NULL)
-			currentt = currentt->next;
-		currentt->next = neww;
-	}
-
-	return (*head);
 }
