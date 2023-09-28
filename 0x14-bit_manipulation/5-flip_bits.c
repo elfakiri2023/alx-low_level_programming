@@ -1,25 +1,24 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 
 /**
- * flip_bits - flip bits to convert one number.
+ * flip_bits - counts the number of bits.
  * @n: number
  * @m: number
  * Return: number of bits.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int diff;
-	int c;
+int i = 0;
+unsigned long int current;
+int count = 0;
+unsigned long int exclusive = n ^ m;
 
-	diff = n ^ m;
-	c = 0;
-
-	while (diff)
+	for (i = 63; i >= 0; i--)
 	{
-		c++;
-		diff &= (diff - 1);
+		current = exclusive >> i;
+		if (current & 1)
+			count++;
 	}
 
-	return (c);
+	return (count);
 }
