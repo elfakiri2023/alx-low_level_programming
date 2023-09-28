@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * print_binary - prints a number.
- * @n: number
+ * print_binary - prints a number in binary notation
+ * @n: number to print
+ *
  * Return: void
  */
 void print_binary(unsigned long int n)
@@ -37,11 +38,11 @@ void print_binary(unsigned long int n)
  */
 unsigned long int calculates_pow(unsigned int base, unsigned int power)
 {
-	unsigned long int n;
+	unsigned long int num;
 	unsigned int i;
 
-	n = 1;
+	num = 1;
 	for (i = 1; i <= power; i++)
-		n *= base;
-	return (n);
+		num *= base;
+	return (num);
 }
