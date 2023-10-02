@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+void IO_stat(int stat, int fd, char *filename, char mode);
 /**
  * main - copies the content;
  * @argc: count.
