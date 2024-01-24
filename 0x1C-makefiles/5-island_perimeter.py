@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""Module tand in a grid."""
+"""Module tand in Returns a grid."""
+
 
 def island_perimeter(grid):
-    """Returirid."""
+    """Returirid Returns Returns Returns"""
 
     p = 0
     for i in range(len(grid)):
@@ -14,7 +15,7 @@ def island_perimeter(grid):
 
 
 def neighbors_fn(grid, i, j):
-    """Returns a grid."""
+    """Returns Returns Returns a grid."""
     n = 0
 
     if i <= 0 or not grid[i - 1][j]:
@@ -27,3 +28,4 @@ def neighbors_fn(grid, i, j):
         n += 1
 
     return n
+
