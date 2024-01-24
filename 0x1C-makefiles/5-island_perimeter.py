@@ -1,31 +1,26 @@
 #!/usr/bin/python3
-"""Module tand in Returns a grid."""
+"""class to Defines an island perimeter."""
 
 
 def island_perimeter(grid):
-    """Returirid Returns Returns Returns"""
+    """Return the perimiter of an island.
 
-    p = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if grid[i][j]:
-                p += neighbors_fn(grid, i, j)
+    Args:
+        grid: list of integers.
+    Returns:
+        The perimeter.
+    """
+    w = len(grid[0])
+    h = len(grid)
+    e = 0
+    s = 0
 
-    return p
-
-
-def neighbors_fn(grid, i, j):
-    """Returns Returns Returns a grid."""
-    n = 0
-
-    if i <= 0 or not grid[i - 1][j]:
-        n += 1
-    if j <= 0 or not grid[i][j - 1]:
-        n += 1
-    if j >= len(grid[i]) - 1 or not grid[i][j + 1]:
-        n += 1
-    if i >= len(grid) - 1 or not grid[i + 1][j]:
-        n += 1
-
-    return n
-
+    for i in range(h):
+        for j in range(w):
+            if grid[i][j] == 1:
+                s += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    e += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    e += 1
+    return s * 4 - e * 2
